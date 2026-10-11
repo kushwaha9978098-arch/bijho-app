@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="hi"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#0c0c10"><link rel="icon" href="icons/icon-192.png"><link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>BIJHO BRAND ASHISH</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Devanagari:wght@500;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0c0c10;--panel:#15151b;--line:#3a3020;--gold:#f2b84b;--gold2:#c98a1e;--or:#f47b20;--tx:#f4efe6;--mu:#a9a393;--red:#ff7a7a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{height:100%}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.5 Poppins,'Noto Sans Devanagari',system-ui,sans-serif;
+background-image:radial-gradient(circle at 85% 0,rgba(244,123,32,.16),transparent 40%)}
+#app{max-width:480px;margin:0 auto;min-height:100%;padding:18px 18px 90px}
+h1,h2,h3{margin:0}.t{font-family:'Noto Sans Devanagari',Poppins;font-weight:800;color:var(--gold)}
+.lg{width:64px;height:64px;margin:12px auto 10px;border:2px solid var(--gold);border-radius:18px;background:var(--panel);color:var(--gold);font:700 34px Poppins;display:grid;place-items:center}
+.c{text-align:center}.mu{color:var(--mu);font-size:.82rem}
+label{display:block;margin:12px 0 4px;font-size:.8rem;color:var(--mu)}
+input,select,textarea{width:100%;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--tx);font:inherit}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--gold)}
+.btn{width:100%;margin-top:18px;padding:14px;border:0;border-radius:12px;background:linear-gradient(180deg,#ff8f3a,var(--or));color:#1a0c00;font:600 1rem Poppins;cursor:pointer}
+.btn.g{background:none;border:1px solid var(--gold2);color:var(--gold)}
+.lk{background:none;border:0;color:var(--gold);font:inherit;cursor:pointer;padding:8px;text-decoration:underline}
+.role{display:flex;gap:14px;align-items:center;width:100%;margin-top:14px;padding:18px 16px;border-radius:16px;border:1px solid var(--gold2);background:var(--panel);color:var(--tx);font:inherit;text-align:left;cursor:pointer}.role .i{font-size:2rem}.role b{display:block;font-size:1.05rem}.role small{color:var(--mu)}.role.a{border-color:var(--line)}.role:active{transform:scale(.98)}.err{color:var(--red);font-size:.82rem;min-height:1.2em;margin-top:8px}
+.cls{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.cls button,.st button{padding:11px 0;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--tx);font:inherit;cursor:pointer}
+.st{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cls .on,.st .on{background:var(--or);border-color:var(--or);color:#1a0c00;font-weight:600}
+.hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.badge{border:1px solid var(--gold2);color:var(--gold);padding:3px 12px;border-radius:99px;font-size:.75rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 10px;text-align:center}
+.card .i{font-size:1.9rem}.card b{display:block;margin-top:4px}.card small{color:var(--mu);font-size:.7rem}
+.soon{background:var(--panel);border:1px dashed var(--gold2);border-radius:14px;padding:14px;margin-top:14px}
+.soon span{display:inline-block;margin:4px 6px 0 0;padding:3px 10px;border:1px solid var(--line);border-radius:99px;font-size:.75rem;color:var(--mu)}
+.tabs{position:fixed;left:0;right:0;bottom:0;background:#101015;border-top:1px solid var(--line);display:flex;padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs button{flex:1;background:none;border:0;color:var(--mu);padding:9px 0 8px;font:.68rem Poppins;cursor:pointer}
+.tabs button span{display:block;font-size:1.25rem}.tabs .on{color:var(--gold)}
+.row{display:flex;justify-content:space-between;padding:14px;margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;cursor:pointer}
+.row.red{color:var(--red)}.note{margin-top:18px;padding:10px 12px;border-radius:10px;background:rgba(242,184,75,.1);font-size:.76rem;color:var(--mu)}
+@media(min-width:900px){#app{zoom:1.7;padding-bottom:20px}.tabs{position:sticky;left:auto;right:auto}}.op{display:block;width:100%;text-align:left;margin-top:8px;padding:13px;border-radius:12px;border:1px solid var(--line);background:var(--panel);color:var(--tx);font:inherit;cursor:pointer}.op.sel{border-color:var(--gold);background:rgba(242,184,75,.15);color:var(--gold)}.op.ok{border-color:#4cc27a;color:#4cc27a}.op.no{border-color:var(--red);color:var(--red)}.two{display:flex;gap:10px}.two .btn{margin-top:14px}
+.bb{border-radius:14px;padding:10px 12px;margin:8px 0;max-width:88%;white-space:pre-wrap;font-size:.9rem}.bb.u{background:var(--or);color:#1a0c00;margin-left:auto}.bb.a{background:var(--panel);border:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.chips button{padding:7px 14px;border-radius:99px;border:1px solid var(--line);background:var(--panel);color:var(--tx);font:inherit;font-size:.82rem;cursor:pointer}.chips .on{background:var(--or);border-color:var(--or);color:#1a0c00}
+.ask{display:flex;gap:8px;margin-top:12px}.ask input{flex:1}.ask button{width:56px;border:0;border-radius:12px;background:var(--or);font-size:1.2rem;cursor:pointer}
+.load{text-align:center;color:var(--mu);padding:24px}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts button{padding:8px 12px;border-radius:10px;border:1px solid var(--gold2);background:none;color:var(--gold);font:inherit;font-size:.82rem;cursor:pointer}.acts button:disabled{opacity:.5}.sec{margin:18px 0 4px;color:var(--gold);font-size:1rem}.rowc{display:flex;flex-direction:column;gap:8px;padding:14px;margin-top:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.socr{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.sb{display:flex;align-items:center;gap:6px;padding:9px 14px;border-radius:99px;color:#fff;text-decoration:none;font:600 .82rem Poppins,sans-serif;border:0;cursor:pointer}.sb svg{width:18px;height:18px;fill:#fff}.sb.instagram{background:linear-gradient(45deg,#f09433,#dc2743,#bc1888)}.sb.facebook{background:#1877f2}.sb.youtube{background:#f00}.sb.whatsapp{background:#25d366;color:#04210f}.sb.whatsapp svg{fill:#04210f}.sb.off{background:#2a2a33;color:var(--mu)}.sb.off svg{fill:var(--mu)}body.foot #app{min-height:0;padding-bottom:6px}#soc{max-width:480px;margin:0 auto;padding:10px 18px 30px}body.hastabs #soc{padding-bottom:100px}@media(min-width:900px){#soc{zoom:1.7}}.ov{position:fixed;inset:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;padding:20px;z-index:50}.dlg{background:var(--panel);border:1px solid var(--gold2);border-radius:18px;padding:22px 18px 16px;max-width:380px;width:100%;text-align:center}.dlg p{margin:0 0 6px;white-space:pre-wrap;line-height:1.6}.dlg .big{font:700 2rem Poppins;letter-spacing:6px;color:var(--gold);margin:8px 0}.dlg .two .btn{margin-top:14px}@media(min-width:900px){.ov .dlg{zoom:1.7}}
+:root{--or:#f2b84b}
+.btn{display:block;width:auto;min-width:150px;max-width:100%;margin:16px auto 0;padding:9px 24px;border:0;border-radius:99px;background:linear-gradient(180deg,#ffd982,#e3a52f);color:#1a0c00;font:600 .9rem Poppins,'Noto Sans Devanagari',sans-serif;cursor:pointer}
+.btn.g{background:none;border:1px solid var(--gold2);color:var(--gold)}
+.btn:disabled{opacity:.5}
+.two{flex-wrap:wrap;justify-content:center}.two .btn{flex:0 1 auto;min-width:120px;padding:8px 18px;margin:12px 4px 0}
+.cls button,.st button{border-radius:99px;padding:8px 0;font-size:.88rem}
+.acts button{border-radius:99px;padding:6px 13px;font-size:.8rem}
+.ask button{border-radius:99px;width:48px}
+.role{padding:13px 15px}.role .i{font-size:1.6rem}.role b{font-size:.98rem}
+.sb{padding:7px 12px;font-size:.76rem}.sb svg{width:16px;height:16px}
+.dlg .big.sm{font-size:1rem;letter-spacing:2px;word-break:break-all;line-height:1.5}
+input[type=file]{padding:9px 10px;font-size:.85rem}
+input[type=file]::file-selector-button{background:linear-gradient(180deg,#ffd982,#e3a52f);color:#1a0c00;border:0;border-radius:99px;padding:7px 16px;margin-right:10px;font:600 .82rem Poppins,sans-serif;cursor:pointer}
+.hint{font-size:.74rem;color:var(--mu);margin-top:6px}
+
+/* ===== Premium gold-white theme ===== */
+:root{--gw:linear-gradient(180deg,#fffaf0 0%,#ffe9b0 42%,#f6c552 100%);--line:#3d3320;--ink:#2b1a00}
+body{background-image:radial-gradient(circle at 88% 0,rgba(242,184,75,.17),transparent 42%),radial-gradient(circle at 0 100%,rgba(242,184,75,.07),transparent 42%)}
+.t{background:linear-gradient(180deg,#fffaf0,#f6c552);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.btn{background:var(--gw);color:var(--ink);border:1px solid #f3cb73;box-shadow:0 3px 12px rgba(242,184,75,.22),inset 0 1px 0 rgba(255,255,255,.9);letter-spacing:.2px}
+.btn:active{transform:scale(.97)}
+.btn.g{background:rgba(255,233,176,.06);color:#ffe9b0;border:1px solid #e3b04b;box-shadow:none}
+.acts button{background:var(--gw);color:var(--ink);border:1px solid #f3cb73;box-shadow:0 2px 8px rgba(242,184,75,.18);font-weight:600}
+.acts button:disabled{opacity:.5}
+.cls button,.st button,.chips button{background:rgba(255,233,176,.05);border:1px solid #6b5628;color:#f4efe6}
+.cls .on,.st .on,.chips .on{background:var(--gw);color:var(--ink);border-color:#f3cb73;font-weight:700}
+.ask button{background:var(--gw);color:var(--ink);box-shadow:0 2px 8px rgba(242,184,75,.25)}
+.badge{background:var(--gw);color:var(--ink);border:0;font-weight:700;box-shadow:0 2px 8px rgba(242,184,75,.2)}
+.lg{border:2px solid #f6c552;box-shadow:0 0 24px rgba(242,184,75,.35),inset 0 0 12px rgba(242,184,75,.12);background:linear-gradient(160deg,#1c1a14,#111116)}
+.card,.row,.rowc,.soon{background:linear-gradient(180deg,#191920,#121217);border:1px solid #3d3320;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.card{transition:transform .12s,border-color .12s}.card:active{transform:scale(.97);border-color:#f3cb73}
+.row:active{border-color:#f3cb73}
+.role{background:linear-gradient(180deg,#1b1a1f,#121217);border:1px solid #6b5628;border-radius:18px;box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.role:active{border-color:#f3cb73}
+input,select,textarea{border:1px solid #3d3320;background:#14141a}
+input:focus,select:focus,textarea:focus{outline:2px solid #ffe9b0;border-color:transparent}
+.tabs{background:rgba(14,14,18,.96);border-top:1px solid #3d3320;backdrop-filter:blur(8px)}
+.tabs .on{color:#ffe9b0}.tabs .on span{background:rgba(242,184,75,.18);border-radius:99px;padding:1px 14px;display:block;width:max-content;margin:0 auto 2px}
+.dlg{background:linear-gradient(180deg,#1b1a1f,#121217);border:1px solid #e3b04b;box-shadow:0 12px 44px rgba(0,0,0,.7),0 0 0 3px rgba(242,184,75,.1)}
+.note{background:rgba(242,184,75,.09);border:1px solid rgba(242,184,75,.22);color:#d9cfb8;border-radius:12px}
+.pb i{background:var(--gw)}
+.ring,.lg{color:#ffe9b0}
+.lk{color:#ffe9b0}
+.op.sel{background:rgba(242,184,75,.16);border-color:#f3cb73;color:#ffe9b0}
+.tm{border-color:#f3cb73;color:#ffe9b0}
+/* social buttons: gold-white pill, brand-coloured icon */
+.sb{background:var(--gw);color:var(--ink);border:1px solid #f3cb73;box-shadow:0 2px 8px rgba(242,184,75,.2)}
+.sb.instagram,.sb.facebook,.sb.youtube,.sb.whatsapp{background:var(--gw);color:var(--ink)}
+.sb svg{width:17px;height:17px}
+.sb.instagram svg{fill:#c13584}.sb.facebook svg{fill:#1877f2}.sb.youtube svg{fill:#e00000}.sb.whatsapp svg{fill:#1da851}
+.sb.off{background:#26262e;color:var(--mu);border-color:#3d3320;box-shadow:none}.sb.off svg{fill:var(--mu)}
+</style></head><body><div id="app"></div><div id="soc"></div><div id="mdl"></div>
+<script>
+var MB=[];
+function modal(msg,btns,big){MB=btns;var e=$('mdl');if(!e)return;e.innerHTML='<div class="ov"><div class="dlg"><p>'+esc(msg)+'</p>'+(big?'<div class="big'+(String(big).length>10?' sm':'')+'">'+esc(big)+'</div>':'')+'<div class="two">'+btns.map(function(b,i){return '<button class="btn'+(b[2]?' g':'')+'" onclick="mb('+i+',this)">'+esc(b[0])+'</button>'}).join('')+'</div></div></div>'}
+function mb(i,el){var b=MB[i];if(!b)return;if(!b[3]){MB=[];$('mdl').innerHTML=''}if(b[1])b[1](el)}
+function copyTxt(t,el){function done(){el.textContent='✅ कॉपी हो गया'}function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}a.remove()}try{navigator.clipboard.writeText(t).then(done,fb)}catch(e){fb()}}
+function info(msg,big){modal(msg,[['ठीक है']],big)}
+function yn(msg,yes){modal(msg,[['नहीं',null,1],['हाँ',yes]])}
+var AS=['Hindi','English','Math','Science','Social Science','Sanskrit','Physics','Chemistry','Maths','Biology','History','Political Science','Geography','Economics','Sociology','Psychology','Philosophy','Accountancy','Business Studies','Business Maths'];
+var IC={Hindi:'📖',English:'🔤',Math:'🧮',Maths:'🧮','Business Maths':'🧮',Science:'🔬','Social Science':'🌍',Sanskrit:'🕉️',Physics:'⚛️',Chemistry:'🧪',Biology:'🍃',History:'📜','Political Science':'🏛️',Geography:'🗺️',Economics:'📈',Sociology:'👥',Psychology:'🧠',Philosophy:'💭',Accountancy:'🧾','Business Studies':'💼'};
+var TK='bijho_tok',AK='bijho_atok',tmr;
+var S={view:'boot',tab:'home',me:null,subs:[],err:'',cls:8,stream:'Science',sub:null,chs:[],chT:'',notes:[],tsub:null,tests:[],hist:[],T:null,R:null,chat:[],left:null,aps:null,achs:[],busy:false,vids:[],play:null,dling:{},links:{instagram:'',facebook:'',youtube:'',whatsapp:''}};
+function $(i){return document.getElementById(i)}
+function esc(x){return String(x==null?'':x).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function tok(k){try{return localStorage.getItem(k)||''}catch(e){return''}}
+function setTok(k,v){try{v?localStorage.setItem(k,v):localStorage.removeItem(k)}catch(e){}}
+function api(path,o,role){o=o||{};var h={},K=role=='a'?AK:TK,t=tok(K);if(t)h['Authorization']='Bearer '+t;
+ if(o.json){h['Content-Type']='application/json';o.body=JSON.stringify(o.json);delete o.json}o.headers=h;
+ return fetch(path,o).then(function(r){return r.json().catch(function(){return{}}).then(function(d){
+  if(r.status==401&&t&&!/\/(login|register|change-credentials|me\/password|admin\/recover)$/.test(path)){setTok(K,'');S.me=null;go('welcome');throw new Error(d.error||'Session khatam, dobara login karo')}
+  if(!r.ok)throw new Error(d.error||'Kuch gadbad hui, dobara try karo');if(d.token)setTok(K,d.token);return d})})}
+function go(v,t){S.view=v;S.err='';if(t)S.tab=t;draw()}
+function fail(e){S.err=e.message||'Kuch gadbad hui';S.busy=false;draw()}
+function val(i){return $(i)?$(i).value.trim():''}
+function logout(){setTok(TK,'');setTok(AK,'');S.me=null;S.chat=[];setDL([]);if(window.caches)caches.delete('bijho-videos');go('welcome')}
+function loadLinks(){api('/api/links').then(function(d){S.links=d;drawSoc()}).catch(function(){})}
+function boot(){loadLinks();if(tok(AK)){api('/api/admin/stats',{},'a').then(function(d){S.aps=d;go('adminhome')}).catch(function(){logout()});return}
+ if(tok(TK)){api('/api/me').then(function(d){S.me=d.student;enter()}).catch(function(e){go(e instanceof TypeError?'offline':'welcome')});return}go('welcome')}
+function enter(){api('/api/subjects').then(function(d){S.subs=d.subjects;go('home','home')}).catch(fail)}
+function login(){api('/api/login',{method:'POST',json:{mobile:val('m'),password:$('p').value}}).then(function(d){S.me=d.student;enter()}).catch(fail)}
+function reg(){if(!$('ok').checked){S.err='Privacy Policy manna zaroori hai';return draw()}
+ api('/api/register',{method:'POST',json:{name:val('n'),mobile:val('m'),password:$('p').value,class:S.cls,stream:S.cls>10?S.stream:null,accept_privacy:true}}).then(function(d){S.me=d.student;enter()}).catch(fail)}
+function pick(k,v){var a=['n','m','p'].map(function(i){return $(i)&&$(i).value});S[k]=v;draw();['n','m','p'].forEach(function(i,j){if($(i)&&a[j])$(i).value=a[j]})}
+function del(){yn('Account हमेशा के लिए delete हो जाएगा। पक्का?',function(){api('/api/me',{method:'DELETE'}).then(logout).catch(fail)})}
+function openSub(i){S.sub=S.subs[i];api('/api/chapters?subject='+encodeURIComponent(S.sub)).then(function(d){S.chs=d.chapters;go('chapters')}).catch(fail)}
+function openCh(i){var c=S.chs[i];S.chT=c.title;Promise.all([api('/api/chapters/'+c.id+'/notes'),api('/api/chapters/'+c.id+'/videos')]).then(function(r){S.notes=r[0].notes;S.vids=r[1].videos;go('chap')}).catch(fail)}
+function DL(){try{return JSON.parse(localStorage.getItem('bijho_dl')||'[]')}catch(e){return[]}}
+function setDL(a){try{localStorage.setItem('bijho_dl',JSON.stringify(a))}catch(e){}}
+function isDL(id){return DL().some(function(x){return x.id==id})}
+function fmt(n){return n>1048576?(n/1048576).toFixed(1)+' MB':Math.max(1,Math.round(n/1024))+' KB'}
+function openPdf(i,dl){var n=S.notes[i],w=dl?null:window.open('','_blank');api('/api/notes/'+n.id+'/link').then(function(d){
+ if(dl||!w){var a=document.createElement('a');a.href=d.url+(dl&&d.url.charAt(0)=='/'?'?dl=1':'');if(dl)a.download=n.title+'.pdf';else{a.target='_blank';a.rel='noopener'}document.body.appendChild(a);a.click();a.remove()}else w.location.href=d.url}).catch(function(e){if(w)w.close();fail(e)})}
+function playV(i){var v=S.vids[i];if(v.kind=='youtube'){S.play={title:v.title,yt:v.yt,back:'chap'};return go('play')}
+ api('/api/videos/'+v.id+'/link').then(function(d){S.play={title:v.title,src:d.url,back:'chap'};go('play')}).catch(fail)}
+function saveV(i){var v=S.vids[i];if(S.dling[v.id])return;if(!window.caches)return fail({message:'ऑफ़लाइन सेव के लिए सुरक्षित (https) कनेक्शन चाहिए'});S.dling[v.id]=1;S.err='';draw();
+ api('/api/videos/'+v.id+'/link').then(function(d){return fetch(d.url)}).then(function(r){if(!r.ok)throw new Error('वीडियो डाउनलोड नहीं हुआ');return caches.open('bijho-videos').then(function(c){return c.put('/offline/v/'+v.id,r)})}).then(function(){var a=DL().filter(function(x){return x.id!=v.id});a.push({id:v.id,title:v.title,size:v.size});setDL(a);delete S.dling[v.id];draw()}).catch(function(e){delete S.dling[v.id];fail(new Error(e&&e.name=='QuotaExceededError'?'फ़ोन में जगह कम है':(e&&e.message)||'डाउनलोड नहीं हुआ'))})}
+function delV(id){caches.open('bijho-videos').then(function(c){return c.delete('/offline/v/'+id)}).then(function(){setDL(DL().filter(function(x){return x.id!=id}));draw()})}
+function playOff(id){var m=DL().filter(function(x){return x.id==id})[0],back=S.view;caches.open('bijho-videos').then(function(c){return c.match('/offline/v/'+id)}).then(function(r){if(!r)throw new Error('सेव किया हुआ वीडियो नहीं मिला');return r.blob()}).then(function(b){S.play={title:m.title,src:URL.createObjectURL(b),back:back};go('play')}).catch(fail)}
+function tab(t){S.tab=t;S.view='home';S.err='';if(t=='tests'){S.tsub=null;S.tests=[];api('/api/attempts').then(function(d){S.hist=d.attempts;draw()}).catch(fail)}
+ if(t=='ai')api('/api/ai/usage').then(function(d){S.left=d.remaining;draw()}).catch(fail);draw()}
+function openTs(i){S.tsub=S.subs[i];api('/api/tests?subject='+encodeURIComponent(S.tsub)).then(function(d){S.tests=d.tests;draw()}).catch(fail)}
+function pickCount(i){var t=S.tests[i],n=t.questions;if(n<10)return startT(i);var o=[];for(var c=10;c<=Math.min(n,100);c+=10)o.push(c);if(o[o.length-1]!==n)o.push(n);
+ modal('📝 '+t.title+'\nकितने सवाल का Quiz देना है?\n(हर बार सवाल अलग-अलग आएँगे और समय सवालों के हिसाब से अपने-आप घट जाएगा)',o.map(function(c){return [c==n?'सभी '+c:String(c),function(){startT(i,c)}]}).concat([['रद्द करें',null,1]]))}
+function startT(i,count){var t=S.tests[i];api('/api/tests/'+t.id+'/start',{method:'POST',json:count?{count:count}:{}}).then(function(d){S.T={aid:d.attempt_id,title:d.title,qs:d.questions,end:Date.now()+d.seconds_left*1000,i:0,a:{}};go('testrun');clearInterval(tmr);tmr=setInterval(tick,1000)}).catch(fail)}
+function tick(){if(!S.T||S.view!='testrun')return;var l=Math.max(0,Math.round((S.T.end-Date.now())/1000)),e=$('tm');if(e)e.textContent='⏱ '+Math.floor(l/60)+':'+('0'+l%60).slice(-2);if(!l)submitT()}
+function pickA(i){S.T.a[S.T.qs[S.T.i].id]=i;draw()}
+function nav(d){S.T.i+=d;draw()}
+function askSubmit(){var T=S.T,n=T.qs.filter(function(q){return T.a[q.id]!==undefined}).length,left=T.qs.length-n;yn('आपने '+T.qs.length+' में से '+n+' सवालों के उत्तर दिए हैं'+(left?' ('+left+' बाक़ी)':'')+'।\nTest जमा करें? जमा करने के बाद बदल नहीं सकते।',submitT)}
+function submitT(){if(!S.T||S.busy)return;S.busy=true;clearInterval(tmr);var T=S.T;api('/api/attempts/'+T.aid+'/submit',{method:'POST',json:{answers:T.a}}).then(function(d){S.busy=false;S.R=d;S.T=null;go('result')}).catch(fail)}
+function ask(){var q=val('q');if(q.length<2)return;S.chat.push({u:1,t:q});S.chat.push({t:'सोच रहा हूँ…'});S.busy=true;draw();
+ api('/api/ai/ask',{method:'POST',json:{question:q}}).then(function(d){S.chat.pop();S.chat.push({t:d.answer});S.left=d.remaining;S.busy=false;draw()}).catch(function(e){S.chat.pop();S.chat.push({t:'⚠ '+e.message});S.busy=false;S.err='';draw()})}
+/* admin */
+function adm(){api('/api/admin/login',{method:'POST',json:{login_id:val('a'),password:$('p').value,code:val('c')}},'a').then(function(){return api('/api/admin/stats',{},'a')}).then(function(d){S.aps=d;go('adminhome')}).catch(fail)}
+function csV(){var c=+$('ac').value;return {class:c,stream:c>10?$('as').value:null,subject:$('asub').value}}
+function addCh(){var b=csV();b.title=val('at');api('/api/admin/chapters',{method:'POST',json:b},'a').then(function(){info('अध्याय जुड़ गया ✅');go('adminhome')}).catch(fail)}
+function addTestGo(){var b=csV(),qs=[];b.title=val('at');b.duration_min=+val('am');
+ $('aq').value.split('\n').forEach(function(l){var p=l.split('|').map(function(x){return x.trim()});if(p.length==6&&p[0]&&+p[5]>=1&&+p[5]<=4)qs.push({text:p[0],options:p.slice(1,5),correct:+p[5]-1})});
+ b.questions=qs;api('/api/admin/tests',{method:'POST',json:b},'a').then(function(d){info('Test बन गया ✅ ('+d.questions+' सवाल)');go('adminhome')}).catch(fail)}
+/* views */
+function brand(s){return '<div class="c"><div class="lg">B</div><h1 class="t">BIJHO BRAND ASHISH</h1><div class="mu">'+s+'</div></div>'}
+function hd(t,back){return '<div class="hdr"><button class="lk" onclick="'+back+'">←</button><h2 class="t" style="flex:1;font-size:1.2rem">'+esc(t)+'</h2></div>'}
+function row(a,b,c){return '<div class="row"'+(c?' onclick="'+c+'"':'')+'><span>'+a+'</span><span class="mu">'+(b||'')+'</span></div>'}
+function opt(a){return a.map(function(x){return '<option>'+x+'</option>'}).join('')}
+function clsPick(){return '<label>Class</label><div class="cls">'+[8,9,10,11,12].map(function(c){return '<button class="'+(S.cls==c?'on':'')+'" onclick="pick(\'cls\','+c+')">'+c+'</button>'}).join('')+'</div>'+(S.cls>10?'<label>Stream</label><div class="st">'+['Science','Arts','Commerce'].map(function(s){return '<button class="'+(S.stream==s?'on':'')+'" onclick="pick(\'stream\',\''+s+'\')">'+s+'</button>'}).join('')+'</div>':'')}
+function csF(){return '<label>क्लास</label><select id="ac">'+opt([8,9,10,11,12])+'</select><label>स्ट्रीम (सिर्फ़ 11-12)</label><select id="as">'+opt(['Science','Arts','Commerce'])+'</select><label>विषय</label><select id="asub">'+opt(AS)+'</select>'}
+function subCards(fn){return '<div class="grid">'+S.subs.map(function(s,i){return '<div class="card" style="cursor:pointer" onclick="'+fn+'('+i+')"><div class="i">'+(IC[s]||'📚')+'</div><b>'+esc(s)+'</b></div>'}).join('')+'</div>'}
+function tabs(){var T=[['home','🏠','Home'],['study','📚','Study'],['ai','✨','AI'],['tests','📝','Tests'],['me','👤','Profile']];
+ return '<div class="tabs">'+T.map(function(t){return '<button class="'+(S.tab==t[0]?'on':'')+'" onclick="tab(\''+t[0]+'\')"><span>'+t[1]+'</span>'+t[2]+'</button>'}).join('')+'</div>'}
+function tabBody(){var u=S.me,t=S.tab;
+ if(t=='home')return '<div class="hdr"><div><div class="mu">नमस्ते 👋</div><h2 class="t">'+esc(u.name)+'</h2></div><span class="badge">Class '+u.class+(u.stream?' • '+u.stream:'')+'</span></div><div class="mu">आपके विषय</div>'+subCards('openSub')+'<div class="note">📌 हर विषय में अध्याय खोलकर नोट्स पढ़ें और वीडियो देखें। Settings में नाम, क्लास और पासवर्ड बदल सकते हैं।</div>';
+ if(t=='study')return '<h2 class="t">पढ़ाई</h2><div class="mu">विषय चुनें</div>'+subCards('openSub');
+ if(t=='ai')return '<h2 class="t">✨ BIJHO Doubt AI</h2><div class="mu">सिर्फ़ पढ़ाई के सवाल'+(S.left!=null?' • आज '+S.left+' सवाल बाक़ी':'')+'</div>'+
+  (S.chat.length?S.chat.map(function(c){return '<div class="bb '+(c.u?'u':'a')+'">'+esc(c.t)+'</div>'}).join(''):'<div class="soon">अपना सवाल नीचे लिखें, जैसे: "न्यूटन का दूसरा नियम समझाओ"</div>')+'<div class="ask"><input id="q" maxlength="1000" placeholder="अपना doubt लिखें..." onkeydown="if(event.key===\'Enter\')ask()"><button onclick="ask()" '+(S.busy?'disabled':'')+'>➤</button></div>';
+ if(t=='tests'){var h='<h2 class="t">Tests</h2><div class="mu">विषय चुनें</div><div class="chips">'+S.subs.map(function(s,i){return '<button class="'+(S.tsub==s?'on':'')+'" onclick="openTs('+i+')">'+esc(s)+'</button>'}).join('')+'</div>';
+  if(S.tsub)h+=S.tests.length?S.tests.map(function(x,i){return row('📝 '+esc(x.title),x.questions+' सवाल • '+x.duration_min+' मि'+(x.best_score!=null?' • 🏆'+x.best_score+(x.best_total?'/'+x.best_total:''):''),'pickCount('+i+')')}).join(''):'<div class="soon">इस विषय में अभी कोई Test नहीं है।</div>';
+  return h+'<h3 style="margin:22px 0 4px;color:var(--gold)">Score History</h3>'+(S.hist.length?S.hist.map(function(r){return row(esc(r.title),r.score+' / '+r.total+(r.late?' ⏰':''))}).join(''):'<div class="mu">अभी कोई Test नहीं दिया।</div>')}
+ return '<h2 class="t">Profile</h2>'+row('👤 '+esc(u.name),esc(u.mobile))+row('🎓 Class',u.class+(u.stream?' • '+u.stream:''))+row('⚙ Settings','›',"go('settings')")+row('📥 मेरे डाउनलोड',DL().length+' वीडियो','go(\'downloads\')')+row('🚪 Logout','','logout()')+'<div class="row red" onclick="del()"><span>🗑 Account Delete</span></div>'}
+function runH(){var T=S.T,q=T.qs[T.i],last=T.i==T.qs.length-1;
+ return '<div class="hdr"><b class="t" style="font-size:1rem">'+esc(T.title)+'</b><span class="badge" id="tm"></span></div><div class="mu">सवाल '+(T.i+1)+' / '+T.qs.length+'</div><div class="card" style="text-align:left;margin:10px 0;font-size:1.05rem">'+esc(q.text)+'</div>'+
+ q.options.map(function(o,i){return '<button class="op'+(T.a[q.id]===i?' sel':'')+'" onclick="pickA('+i+')">'+'ABCD'[i]+'. '+esc(o)+'</button>'}).join('')+
+ '<div class="two">'+(T.i>0?'<button class="btn g" onclick="nav(-1)">← पिछला</button>':'')+(last?'<button class="btn" onclick="askSubmit()">जमा करें</button>':'<button class="btn" onclick="nav(1)">अगला →</button>')+'</div>'}
+function resultH(){var R=S.R;
+ return '<div class="c"><h2 class="t">Test पूरा हुआ! 🎉</h2><div class="lg" style="width:96px;height:96px;font-size:1.6rem;border-radius:50%">'+R.score+'/'+R.total+'</div><div class="mu">'+(R.late?'⏰ समय के बाद जमा हुआ, इसलिए Score 0':'Score '+Math.round(R.score*100/R.total)+'%')+'</div></div>'+
+ R.review.map(function(q,i){return '<div class="soon" style="border-style:solid"><b>'+(i+1)+'. '+esc(q.text)+'</b>'+q.options.map(function(o,j){var c=j==q.correct?' ok':(q.your===j?' no':'');return '<div class="op'+c+'" style="cursor:default">'+'ABCD'[j]+'. '+esc(o)+(j==q.correct?' ✅':'')+(q.your===j&&j!=q.correct?' ❌':'')+'</div>'}).join('')+(q.explanation?'<p class="mu">💡 '+esc(q.explanation)+'</p>':'')+'</div>'}).join('')+
+ '<button class="btn" onclick="tab(\'tests\')">Tests पर वापस</button>'}
+function chapH(){var n=S.notes.length?S.notes.map(function(n,i){return '<div class="rowc"><span>📄 '+esc(n.title)+' <small class="mu">'+(n.link?'🔗 लिंक':fmt(n.size))+'</small></span><span class="acts"><button onclick="openPdf('+i+')">'+(n.link?'🔗 खोलें':'📖 खोलें')+'</button>'+(n.link?'':'<button onclick="openPdf('+i+',1)">⬇ डाउनलोड</button>')+'</span></div>'}).join(''):'<div class="soon">अभी कोई नोट्स नहीं हैं।</div>';
+ var v=S.vids.length?S.vids.map(function(x,i){var f=x.kind=='file',sv=f&&isDL(x.id);return '<div class="rowc"><span>🎥 '+esc(x.title)+' <small class="mu">'+(f?fmt(x.size):(x.kind=='youtube'?'▶ YouTube':'🔗 लिंक'))+'</small></span><span class="acts">'+(sv?'<button onclick="playOff('+x.id+')">▶ ऑफ़लाइन देखें</button><button onclick="delV('+x.id+')">🗑 हटाएँ</button>':'<button onclick="playV('+i+')">▶ देखें</button>'+(f?'<button onclick="saveV('+i+')"'+(S.dling[x.id]?' disabled':'')+'>'+(S.dling[x.id]?'⏳ सेव हो रहा है…':'⬇ ऑफ़लाइन सेव')+'</button>':''))+'</span></div>'}).join(''):'<div class="soon">अभी कोई वीडियो नहीं है।</div>';
+ return hd(S.chT,"go('chapters')")+'<h3 class="sec">📄 नोट्स</h3>'+n+'<h3 class="sec">🎥 वीडियो क्लास</h3>'+v}
+function dlList(){var a=DL();return a.length?a.map(function(x){return '<div class="rowc"><span>🎥 '+esc(x.title)+' <small class="mu">'+fmt(x.size)+'</small></span><span class="acts"><button onclick="playOff('+x.id+')">▶ देखें</button><button onclick="delV('+x.id+')">🗑 हटाएँ</button></span></div>'}).join(''):'<div class="soon">अभी कोई वीडियो डाउनलोड नहीं है।</div>'}
+var IGI='<svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.2 5.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg>',
+FBI='<svg viewBox="0 0 24 24"><path d="M13.5 22v-8.2h2.8l.5-3.3h-3.3V8.4c0-.9.4-1.7 1.8-1.7h1.6V3.8s-1.3-.2-2.5-.2c-2.6 0-4.3 1.6-4.3 4.4v2.5H7.3v3.3h2.8V22h3.4z"/></svg>',
+WAI='<svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.2 14.8l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4zm-3 3.8c-.2 0-.5.1-.7.4-.3.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7s1.5-.6 1.7-1.2c.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.4l-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.3-.1-1.1-.4-2-1.2-.7-.7-1.2-1.5-1.4-1.8-.1-.3 0-.4.1-.5l.4-.5c.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-2c-.2-.5-.4-.5-.6-.5H9z"/></svg>',
+YTI='<svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3L10 15z"/></svg>';
+function socH(){var D=[['instagram','Instagram',IGI],['facebook','Facebook',FBI],['youtube','YouTube',YTI],['whatsapp','WhatsApp',WAI]];
+ return '<div class="mu c" style="margin:6px 0 10px">हमसे जुड़ें</div><div class="socr">'+D.map(function(x){var u=S.links[x[0]];return u?'<a class="sb '+x[0]+'" href="'+esc(u)+'" target="_blank" rel="noopener noreferrer">'+x[2]+'<span>'+x[1]+'</span></a>':'<button class="sb off" onclick="info(\'यह लिंक अभी जोड़ा नहीं गया\')">'+x[2]+'<span>'+x[1]+'</span></button>'}).join('')+'</div>'}
+function drawSoc(){var e=$('soc'),on=['boot','testrun'].indexOf(S.view)<0;document.body.className=(on?'foot ':'')+(S.view=='home'?'hastabs':'');if(e)e.innerHTML=on?socH():''}
+function chgCred(){if($('np').value!==$('nq').value)return fail({message:'नया password दोनों जगह एक जैसा लिखें'});
+ api('/api/admin/change-credentials',{method:'POST',json:{current_password:$('cp').value,new_login_id:val('ni'),new_password:$('np').value,code:val('c')}},'a').then(function(d){info('बदल गया ✅\nअब आपका Admin ID: '+d.login_id+'\nअगली बार नए ID/password से लॉगिन करें।');go('adminhome')}).catch(fail)}
+function admLinks(){api('/api/links').then(function(d){S.links=d;go('admlinks')}).catch(fail)}
+function saveLinks(){api('/api/admin/links',{method:'POST',json:{instagram:val('l1'),facebook:val('l2'),youtube:val('l3'),whatsapp:val('l4')}},'a').then(function(d){S.links=d;info('सोशल लिंक सेव हो गए ✅');go('adminhome')}).catch(fail)}
+function settingsH(){return hd('⚙ Settings',"tab('me')")+row('✏ नाम बदलें',esc(S.me.name),"go('setname')")+row('🎓 क्लास / स्ट्रीम बदलें','Class '+S.me.class+(S.me.stream?' • '+S.me.stream:''),"openSetClass()")+row('🔑 पासवर्ड बदलें','›',"go('setpass')")+row('📵 बाक़ी सभी फ़ोन से Logout','›',"logoutAll()")+row('💬 फ़ीडबैक / सुझाव भेजें','›',"go('feedback')")+row('🔒 Privacy Policy','›',"go('privacy')")+row('ℹ हमारे बारे में','›',"go('about')")}
+function saveName(){api('/api/me',{method:'PATCH',json:{name:val('sn')}}).then(function(d){S.me=d.student;info('नाम बदल गया ✅');go('settings')}).catch(fail)}
+function openSetClass(){S.cls=S.me.class;S.stream=S.me.stream||'Science';go('setclass')}
+function saveClass(){api('/api/me',{method:'PATCH',json:{class:S.cls,stream:S.cls>10?S.stream:null}}).then(function(d){S.me=d.student;return api('/api/subjects')}).then(function(d){S.subs=d.subjects;S.tsub=null;info('क्लास बदल गई ✅\nअब आपको नई क्लास का कंटेंट दिखेगा।');go('settings')}).catch(fail)}
+function savePass(){if($('np').value!==$('nq').value)return fail({message:'नया password दोनों जगह एक जैसा लिखें'});
+ api('/api/me/password',{method:'POST',json:{current_password:$('cp').value,new_password:$('np').value}}).then(function(){info('पासवर्ड बदल गया ✅\nबाक़ी सभी फ़ोन से आप अपने-आप Logout हो गए।');go('settings')}).catch(fail)}
+function logoutAll(){yn('बाक़ी सभी फ़ोन/ब्राउज़र से Logout करें? (इस फ़ोन पर Login बना रहेगा)',function(){api('/api/me/logout-all',{method:'POST'}).then(function(){info('हो गया ✅')}).catch(fail)})}
+function sendFb(){api('/api/feedback',{method:'POST',json:{message:val('fb')}}).then(function(){info('धन्यवाद! आपका सुझाव मिल गया ✅');go('settings')}).catch(fail)}
+function admFb(){api('/api/admin/feedback',{},'a').then(function(d){S.fbl=d.feedback;go('admfb')}).catch(fail)}
+function privH(){return hd('Privacy Policy',"go('settings')")+'<div class="soon" style="border-style:solid;line-height:1.7"><b>हम कौन-सी जानकारी लेते हैं</b><br>नाम, मोबाइल नंबर, क्लास/स्ट्रीम, पासवर्ड (सुरक्षित रूप में, सीधे नहीं), Test के नतीजे और आपके भेजे फ़ीडबैक।<br><br><b>हम क्या नहीं लेते</b><br>आधार, कॉन्टैक्ट, लोकेशन या फ़ोटो नहीं माँगते।<br><br><b>Doubt AI</b><br>आप जो सवाल लिखते हैं, वे जवाब देने के लिए AI सेवा को भेजे जाते हैं। आपका नाम या नंबर नहीं भेजा जाता। AI में अपनी निजी जानकारी न लिखें।<br><br><b>उपयोग</b><br>जानकारी सिर्फ़ ऐप चलाने (लॉगिन, पढ़ाई, Test) के लिए है, विज्ञापन या बेचने के लिए नहीं।<br><br><b>डेटा हटाना</b><br>Profile में "Account Delete" दबाने पर आपका खाता और डेटा हट जाता है।<br><br><b>18 साल से कम उम्र</b><br>कृपया अभिभावक की जानकारी में ऐप इस्तेमाल करें।<br><br><b>संपर्क</b><br>Settings → फ़ीडबैक, या नीचे दिए सोशल मीडिया पर।</div>'}
+function fbl(){var a=S.fbl||[];return hd('विद्यार्थियों का फ़ीडबैक',"go('adminhome')")+(a.length?a.map(function(f){return '<div class="rowc"><span><b>'+esc(f.name)+'</b> <small class="mu">• Class '+f.class_no+(f.stream?' '+esc(f.stream):'')+' • '+esc(f.mobile)+' • '+new Date(f.created_at*1000).toLocaleDateString('hi-IN')+'</small></span><span style="white-space:pre-wrap">'+esc(f.message)+'</span></div>'}).join(''):'<div class="soon">अभी कोई फ़ीडबैक नहीं आया।</div>')}
+function sendForgot(){var m=val('fm');api('/api/forgot',{method:'POST',json:{mobile:m,name:val('fn')}}).then(function(){S.rmob=m;go('resetp');info('अनुरोध भेज दिया ✅\nअगर यह नंबर रजिस्टर है तो Admin आपकी पहचान जाँचकर आपको 6 अंक का कोड देंगे (WhatsApp या फ़ोन पर)।\nकोड मिलने पर यहाँ डालकर नया पासवर्ड बनाएँ।')}).catch(fail)}
+function doReset(){if($('rp').value!==$('rq').value)return fail({message:'नया password दोनों जगह एक जैसा लिखें'});
+ api('/api/reset-password',{method:'POST',json:{mobile:val('rm'),code:val('rc'),new_password:$('rp').value}}).then(function(d){S.me=d.student;enter();info('पासवर्ड बदल गया ✅\nआप Login हो गए हैं।')}).catch(fail)}
+function admRs(){api('/api/admin/resets',{},'a').then(function(d){S.rs=d.requests;go('admrs')}).catch(fail)}
+function issueCode(i){var r=S.rs[i];api('/api/admin/resets/'+r.student_id+'/code',{method:'POST'},'a').then(function(d){admRs();var wa='https://wa.me/91'+d.mobile+'?text='+encodeURIComponent('BIJHO पासवर्ड रीसेट कोड: '+d.code+'\n(यह '+d.hours+' घंटे चलेगा, एक ही बार काम करेगा। किसी को न बताएँ।)');
+  modal('विद्यार्थी: '+d.name+' ('+d.mobile+')\n\n⚠ यह कोड ऐप से अपने-आप विद्यार्थी को नहीं जाता। आप इसे उसे WhatsApp या फ़ोन पर दें। '+d.hours+' घंटे चलेगा और एक ही बार काम करेगा।',[['💬 WhatsApp पर भेजें',function(){window.open(wa,'_blank')},0,1],['📋 कॉपी करें',function(el){copyTxt(d.code,el)},1,1],['ठीक है',null,1]],d.code)}).catch(fail)}
+function dismissRs(i){var r=S.rs[i];yn(r.name+' का अनुरोध हटाएँ?',function(){api('/api/admin/resets/'+r.student_id,{method:'DELETE'},'a').then(admRs).catch(fail)})}
+function rsH(){var a=S.rs||[];return hd('पासवर्ड भूले विद्यार्थी',"go('adminhome')")+'<div class="note">⚠ कोड देने से पहले पहचान पक्की करें (नाम, क्लास, कोई निजी जानकारी)। ग़लत व्यक्ति को कोड देने से उसे खाते का पूरा अधिकार मिल जाएगा।</div>'+(a.length?a.map(function(r,i){return '<div class="rowc"><span><b>'+esc(r.name)+'</b> <small class="mu">• Class '+r.class_no+(r.stream?' '+esc(r.stream):'')+' • '+esc(r.mobile)+'</small></span><span class="mu">उसने लिखा नाम: '+esc(r.name_given||'—')+' • '+new Date(r.requested_at*1000).toLocaleString('hi-IN')+'</span><span class="mu">'+(r.code_sent?'✅ कोड दिया जा चुका (24 घंटे में एक बार काम करेगा)':'⏳ कोड का इंतज़ार')+'</span><span class="acts"><button onclick="issueCode('+i+')">🔑 '+(r.code_sent?'नया कोड':'कोड बनाएँ')+'</button><button onclick="dismissRs('+i+')">🗑 हटाएँ</button></span></div>'}).join(''):'<div class="soon">अभी कोई अनुरोध नहीं है।</div>')}
+function recoverAdmin(){if($('rp').value!==$('rq').value)return fail({message:'नया password दोनों जगह एक जैसा लिखें'});
+ api('/api/admin/recover',{method:'POST',json:{recovery_key:$('rk').value,login_id:val('ri'),new_password:$('rp').value}}).then(function(d){go('owner');var k=d.totp_secret;modal((d.created?'नया Admin बन गया ✅':'पासवर्ड बदल गया ✅')+'\nAdmin ID: '+d.login_id+'\n\nGoogle Authenticator खोलें → "+" → "Enter a setup key" → नीचे की key डालें (Time based)। यह key सिर्फ़ अभी दिखेगी, सुरक्षित जगह लिख लें।',[['📋 कॉपी करें',function(el){copyTxt(k,el)},1,1],['ठीक है',null]],k)}).catch(fail)}
+var CATF={'8-10':['Hindi','English','Math','Science','Social Science','Sanskrit'],Science:['Physics','Chemistry','Maths','Biology','Hindi','English'],Arts:['Hindi','English','History','Political Science','Geography','Economics','Sociology','Psychology','Philosophy','Sanskrit'],Commerce:['Accountancy','Business Studies','Economics','Business Maths','Hindi','English']};
+function subsF(c,s){return c<=10?CATF['8-10']:(CATF[s]||[])}
+S.u={cls:8,stream:'Science',sub:'Hindi',ch:'',mode:'file',nc:''};
+function chOf(){var u=S.u;return S.achs.filter(function(c){return c.class_no==u.cls&&(u.cls<=10||c.stream==u.stream)&&c.subject==u.sub})}
+function grpH(){var u=S.u,sl=subsF(u.cls,u.stream);if(sl.indexOf(u.sub)<0)u.sub=sl[0];var cs=chOf();if(u.ch!=='new'&&!cs.some(function(c){return c.id==u.ch}))u.ch=cs.length?cs[0].id:'new';
+ function o(a,sel){return a.map(function(x){return '<option value="'+esc(x[0])+'"'+(String(sel)==String(x[0])?' selected':'')+'>'+esc(x[1])+'</option>'}).join('')}
+ return '<label>1️⃣ किस क्लास में जोड़ना है?</label><select id="uc" onchange="upSel()">'+o([8,9,10,11,12].map(function(c){return [c,'Class '+c]}),u.cls)+'</select>'
+ +(u.cls>10?'<label>स्ट्रीम</label><select id="us" onchange="upSel()">'+o(['Science','Arts','Commerce'].map(function(c){return [c,c]}),u.stream)+'</select>':'')
+ +'<label>2️⃣ कौन-सा विषय?</label><select id="ub" onchange="upSel()">'+o(sl.map(function(c){return [c,c]}),u.sub)+'</select>'
+ +'<label>3️⃣ कौन-सा अध्याय?</label><select id="uh" onchange="upSel()">'+o(cs.map(function(c){return [c.id,c.title]}).concat([['new','➕ नया अध्याय बनाएँ']]),u.ch)+'</select>'
+ +(u.ch==='new'?'<label>नए अध्याय का नाम</label><input id="nc" maxlength="120" value="'+esc(u.nc||'')+'">':'')}
+function upSel(){var u=S.u;u.cls=+$('uc').value;if($('us'))u.stream=$('us').value;if($('ub'))u.sub=$('ub').value;if($('uh'))u.ch=$('uh').value=='new'?'new':+$('uh').value;u.nc=$('nc')?$('nc').value:u.nc;
+ var nm=$('nc')?null:null;$('ugrp').innerHTML=grpH()}
+function upMode(m){S.u.mode=m;$('bf').style.display=m=='file'?'block':'none';$('bl').style.display=m=='link'?'block':'none';$('mf').className=m=='file'?'on':'';$('ml').className=m=='link'?'on':''}
+function fileInfo(){var f=$('af').files[0],e=$('fi');if(!f)return;var mb=f.size/1048576,lim=S.u.kind=='video'?200:25;e.textContent='✅ चुनी हुई फ़ाइल: '+f.name+' ('+mb.toFixed(1)+' MB)'+(mb>lim?' — ⚠ बहुत बड़ी है ('+lim+' MB तक)':'');e.style.color=mb>lim?'#ff7a7a':'#4cc27a'}
+function upH(kind){var isV=kind=='video';S.u.kind=kind;
+ return hd(isV?'🎥 वीडियो जोड़ें':'📄 PDF नोट्स जोड़ें',"go('adminhome')")+'<div class="note">पहले बताएँ कि यह किस क्लास/विषय/अध्याय के विद्यार्थियों को दिखेगा।</div><div id="ugrp">'+grpH()+'</div>'
+ +'<label>4️⃣ '+(isV?'वीडियो':'नोट्स')+' का नाम</label><input id="at" maxlength="120">'
+ +'<label>5️⃣ कैसे जोड़ना है?</label><div class="chips"><button id="mf" class="'+(S.u.mode=='file'?'on':'')+'" onclick="upMode(\'file\')">📁 फ़ाइल से</button><button id="ml" class="'+(S.u.mode=='link'?'on':'')+'" onclick="upMode(\'link\')">🔗 लिंक से</button></div>'
+ +'<div id="bf" style="display:'+(S.u.mode=='file'?'block':'none')+'"><input id="af" type="file" accept="'+(isV?'video/mp4,video/*':'application/pdf,.pdf')+'" onchange="fileInfo()"><div class="hint" id="fi">'+(isV?'MP4, 200 MB तक (480p बेहतर)':'PDF, 25 MB तक')+'। विंडो न खुले तो इस पेज को Chrome में खोलें, या ऊपर "लिंक से" चुनें।</div>'+(window.DEMO?'<button class="btn g" onclick="useSample()">🧪 नमूना फ़ाइल इस्तेमाल करें (डेमो)</button>':'')+'</div>'
+ +'<div id="bl" style="display:'+(S.u.mode=='link'?'block':'none')+'"><input id="ul" placeholder="'+(isV?'https://youtu.be/... (YouTube) या .mp4 का सीधा लिंक':'https://drive.google.com/... या कोई भी https लिंक')+'"><div class="hint">'+(isV?'YouTube पर "Unlisted" वीडियो डालकर उसका लिंक यहाँ चिपकाएँ। इसमें होस्टिंग का स्टोरेज/डेटा ख़र्च नहीं लगता।':'Google Drive में PDF डालकर "Anyone with the link" करें और लिंक यहाँ चिपकाएँ।')+'</div></div>'
+ +'<button class="btn" onclick="upGo(\''+kind+'\')">जोड़ें</button><div id="pg" class="mu c" style="margin-top:10px"></div>'}
+function chTitle(id){var c=S.achs.filter(function(x){return x.id==id})[0];return c?c.title:''}
+function whereTxt(){var u=S.u;return 'Class '+u.cls+(u.cls>10?' • '+u.stream:'')+' • '+u.sub+' • '+(u.ch==='new'?'नया अध्याय: '+val('nc'):chTitle(u.ch))}
+function upGo(kind){var u=S.u,isV=kind=='video',t=val('at'),f=($('af')&&$('af').files[0])||window.SAMPLE_FILE,link=val('ul');
+ if(u.ch==='new'&&val('nc').length<2)return info('नए अध्याय का नाम लिखें (कम से कम 2 अक्षर)');
+ if(t.length<2)return info((isV?'वीडियो':'नोट्स')+' का नाम लिखें (कम से कम 2 अक्षर)');
+ if(u.mode=='file'&&!f)return info('पहले फ़ाइल चुनें। अगर फ़ाइल चुनने की विंडो नहीं खुलती तो ऊपर "🔗 लिंक से" चुनकर लिंक चिपकाएँ।');
+ if(u.mode=='link'&&!/^https:\/\//.test(link))return info('लिंक https:// से शुरू होना चाहिए');
+ if(u.mode=='file'&&f.size>(isV?200:25)*1048576)return info('फ़ाइल बहुत बड़ी है ('+(isV?200:25)+' MB तक)');
+ yn('इसे यहाँ जोड़ना है?\n\n📍 '+whereTxt()+'\n'+(isV?'🎥 ':'📄 ')+t+(u.mode=='link'?'\n🔗 लिंक से':'\n📁 फ़ाइल से'),function(){doUp(kind,t,f,link,whereTxt())})}
+function ensureCh(){var u=S.u;if(u.ch!=='new')return Promise.resolve(u.ch);return api('/api/admin/chapters',{method:'POST',json:{class:u.cls,stream:u.cls>10?u.stream:null,subject:u.sub,title:val('nc')}},'a').then(function(d){return d.id})}
+function xhrUp(path,fd){return new Promise(function(res,rej){var x=new XMLHttpRequest();x.open('POST',path);x.setRequestHeader('Authorization','Bearer '+tok(AK));
+ x.upload.onprogress=function(e){if(e.lengthComputable&&$('pg'))$('pg').textContent='⏳ अपलोड हो रहा है… '+Math.round(e.loaded*100/e.total)+'%'};
+ x.onload=function(){var d={};try{d=JSON.parse(x.responseText)}catch(e){}x.status<300?res(d):rej(new Error(d.error||'अपलोड नहीं हुआ'))};x.onerror=function(){rej(new Error('इंटरनेट की दिक़्क़त, फिर कोशिश करें'))};
+ if($('pg'))$('pg').textContent='⏳ अपलोड शुरू…';x.send(fd)})}
+function doUp(kind,t,f,link,where){var u=S.u,isV=kind=='video';ensureCh().then(function(cid){var fd=new FormData();fd.append('chapter_id',cid);fd.append('title',t);
+  if(u.mode=='link')fd.append('url',link);else fd.append(isV?'video':'pdf',f);var path=isV?'/api/admin/videos':'/api/admin/notes';
+  return (isV&&u.mode=='file')?xhrUp(path,fd):api(path,{method:'POST',body:fd},'a')}).then(function(){u.nc='';u.ch='';info((isV?'वीडियो':'PDF')+' जुड़ गया ✅\n📍 '+where);go('adminhome')}).catch(function(e){info(e.message||'अपलोड नहीं हुआ')})}
+function admNote(){api('/api/admin/chapters',{},'a').then(function(d){S.achs=d.chapters;S.u.mode='file';S.u.nc='';go('admnote')}).catch(fail)}
+function admVid(){api('/api/admin/chapters',{},'a').then(function(d){S.achs=d.chapters;S.u.mode='file';S.u.nc='';go('admvid')}).catch(fail)}
+function addTest(){var b=csV(),n=0;$('aq').value.split('\n').forEach(function(l){var p=l.split('|');if(p.length==6&&p[0].trim()&&+p[5]>=1&&+p[5]<=4)n++});
+ if(val('at').length<2)return info('Test का नाम लिखें (कम से कम 2 अक्षर)');if(!n)return info('कम से कम 1 सही सवाल लिखें।\nतरीक़ा: सवाल | A | B | C | D | सही नंबर (1-4)');
+ yn('इसे यहाँ जोड़ना है?\n\n📍 Class '+b.class+(b.class>10?' • '+b.stream:'')+' • '+b.subject+'\n📝 '+val('at')+'\n'+n+' सवाल • '+val('am')+' मिनट'+(n>=10?'\n\nविद्यार्थी 10, 20, 30… सवाल का Quiz चुन सकेंगे।':''),addTestGo)}
+function view(){var v=S.view;
+ if(v=='boot')return '<div class="load">खुल रहा है…</div>';
+ if(v=='welcome')return brand('पढ़ेगा बिहार, बढ़ेगा बिहार')+'<div style="margin-top:26px" class="mu c">आप कौन हैं?</div><button class="role" onclick="go(\'login\')"><span class="i">🎓</span><span><b>मैं Student हूँ</b><small>Class 8–12 • पढ़ाई, Notes, Tests, AI</small></span></button><button class="role a" onclick="go(\'owner\')"><span class="i">👨‍🏫</span><span><b>Teacher / Admin</b><small>Content और students manage करें</small></span></button>';
+ if(v=='login')return brand('Student Login 🎓')+'<label>Mobile number</label><input id="m" inputmode="numeric" maxlength="10" autocomplete="username"><label>Password</label><input id="p" type="password" autocomplete="current-password" onkeydown="if(event.key===\'Enter\')login()"><button class="btn" onclick="login()">Login</button><div class="c" style="margin-top:12px"><button class="lk" onclick="go(\'reg\')">नया account बनाएँ</button><br><button class="lk mu" onclick="go(\'forgot\')">पासवर्ड भूल गए?</button><br><button class="lk mu" onclick="go(\'welcome\')">← वापस</button></div>';
+ if(v=='reg')return '<h2 class="t">नया account</h2><label>पूरा नाम</label><input id="n" autocomplete="name"><label>Mobile number</label><input id="m" inputmode="numeric" maxlength="10"><label>Password (6+ अक्षर)</label><input id="p" type="password" autocomplete="new-password">'+clsPick()+'<label style="display:flex;gap:8px;align-items:center;margin-top:16px"><input id="ok" type="checkbox" style="width:auto"> Privacy Policy और Terms मान्य हैं</label><button class="btn" onclick="reg()">Account बनाएँ</button><div class="c"><button class="lk" onclick="go(\'login\')">← Login पर वापस</button></div>';
+ if(v=='owner')return brand('Teacher / Admin Panel 🔒')+'<label>Admin ID</label><input id="a" autocomplete="username"><label>Password</label><input id="p" type="password" autocomplete="current-password"><label>6 अंक का Verification Code</label><input id="c" inputmode="numeric" maxlength="6" onkeydown="if(event.key===\'Enter\')adm()"><button class="btn" onclick="adm()">Admin Login</button><div class="c"><button class="lk mu" onclick="go(\'admrec\')">Admin पासवर्ड / कोड भूल गए?</button><br><button class="lk" onclick="go(\'welcome\')">← वापस</button></div>';
+ if(v=='home')return tabBody()+tabs();
+ if(v=='chapters')return hd(S.sub,"tab(S.tab)")+(S.chs.length?S.chs.map(function(c,i){return row('📖 '+esc(c.title),c.notes+' नोट्स','openCh('+i+')')}).join(''):'<div class="soon">अभी कोई अध्याय नहीं जुड़ा।</div>');
+ if(v=='chap')return chapH();
+ if(v=='testrun')return runH(); if(v=='result')return resultH();
+ if(v=='play')return hd(S.play.title,"go('"+S.play.back+"')")+(S.play.yt?'<iframe src="https://www.youtube-nocookie.com/embed/'+esc(S.play.yt)+'" allow="fullscreen; picture-in-picture; encrypted-media" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000"></iframe>':'<video src="'+esc(S.play.src)+'" controls playsinline controlsList="nodownload" style="width:100%;border-radius:12px;background:#000"></video>');
+ if(v=='admnote')return upH('pdf'); if(v=='admvid')return upH('video');
+ if(v=='downloads')return hd('📥 मेरे डाउनलोड',"go('home')")+dlList();
+ if(v=='offline')return brand('इंटरनेट नहीं है 📴')+'<div class="mu c" style="margin:14px 0">आपके सेव किए हुए वीडियो नीचे हैं।</div>'+dlList()+'<button class="btn" onclick="boot()">फिर कोशिश करें</button>';
+ if(v=='admcred')return hd('ID / Password बदलें',"go('adminhome')")+'<div class="note">सुरक्षा के लिए पुराना password और Authenticator का कोड ज़रूरी है। जिसे बदलना न हो उसे खाली छोड़ें।</div><label>पुराना Password</label><input id="cp" type="password" autocomplete="current-password"><label>नया Admin ID (खाली = वही रहेगा)</label><input id="ni" autocomplete="off"><label>नया Password (10+ अक्षर, खाली = वही रहेगा)</label><input id="np" type="password" autocomplete="new-password"><label>नया Password दोबारा</label><input id="nq" type="password" autocomplete="new-password"><label>6 अंक का Verification Code</label><input id="c" inputmode="numeric" maxlength="6"><button class="btn" onclick="chgCred()">बदलें</button>';
+ if(v=='admlinks')return hd('सोशल लिंक',"go('adminhome')")+'<div class="note">पूरा लिंक https:// से शुरू करें। खाली छोड़ने पर वह बटन ग्रे दिखेगा।</div><label>Instagram</label><input id="l1" value="'+esc(S.links.instagram)+'" placeholder="https://instagram.com/आपका-नाम"><label>Facebook</label><input id="l2" value="'+esc(S.links.facebook)+'" placeholder="https://facebook.com/आपका-पेज"><label>YouTube</label><input id="l3" value="'+esc(S.links.youtube)+'" placeholder="https://youtube.com/@आपका-चैनल"><label>WhatsApp (Channel या Business का लिंक)</label><input id="l4" value="'+esc(S.links.whatsapp)+'" placeholder="https://whatsapp.com/channel/..."><button class="btn" onclick="saveLinks()">सेव करें</button>';
+ if(v=='forgot')return hd('पासवर्ड भूल गए?',"go('login')")+'<div class="note">SMS की जगह Admin आपकी पहचान जाँचकर आपको एक बार का 6 अंक का कोड देंगे। उस कोड से आप नया पासवर्ड बना सकेंगे।</div><label>अपना Mobile number</label><input id="fm" inputmode="numeric" maxlength="10"><label>अपना नाम (पहचान के लिए)</label><input id="fn" maxlength="60"><button class="btn" onclick="sendForgot()">अनुरोध भेजें</button><button class="btn g" onclick="go(\'resetp\')">मेरे पास कोड है</button>';
+ if(v=='resetp')return hd('नया पासवर्ड बनाएँ',"go('login')")+'<label>Mobile number</label><input id="rm" inputmode="numeric" maxlength="10" value="'+esc(S.rmob||'')+'"><label>Admin से मिला 6 अंक का कोड</label><input id="rc" inputmode="numeric" maxlength="6"><label>नया Password (6+ अक्षर)</label><input id="rp" type="password" autocomplete="new-password"><label>नया Password दोबारा</label><input id="rq" type="password" autocomplete="new-password"><button class="btn" onclick="doReset()">पासवर्ड बदलें</button>';
+ if(v=='admrs')return rsH();
+ if(v=='admrec')return hd('Admin पासवर्ड / कोड भूल गए',"go('owner')")+'<div class="note">यह वही Recovery Key माँगता है जो आपने होस्टिंग की सेटिंग (ADMIN_RECOVERY_KEY) में रखी है। सही key डालने पर नया पासवर्ड और नया 2-step key मिलेगा। पुराने सभी Admin सेशन बंद हो जाएँगे।</div><label>Recovery Key</label><input id="rk" type="password" autocomplete="off"><label>Admin ID</label><input id="ri" autocomplete="username"><label>नया Password (10+ अक्षर)</label><input id="rp" type="password" autocomplete="new-password"><label>नया Password दोबारा</label><input id="rq" type="password" autocomplete="new-password"><button class="btn" onclick="recoverAdmin()">बदलें</button>';
+ if(v=='settings')return settingsH();
+ if(v=='setname')return hd('नाम बदलें',"go('settings')")+'<label>आपका नाम</label><input id="sn" value="'+esc(S.me.name)+'" maxlength="60"><button class="btn" onclick="saveName()">सेव करें</button>';
+ if(v=='setclass')return hd('क्लास / स्ट्रीम बदलें',"go('settings')")+'<div class="note">क्लास बदलने पर आपको नई क्लास के विषय, नोट्स, वीडियो और Test दिखेंगे। आपके पुराने Test के नतीजे बने रहेंगे।</div>'+clsPick()+'<button class="btn" onclick="saveClass()">बदलें</button>';
+ if(v=='setpass')return hd('पासवर्ड बदलें',"go('settings')")+'<label>पुराना Password</label><input id="cp" type="password" autocomplete="current-password"><label>नया Password (6+ अक्षर)</label><input id="np" type="password" autocomplete="new-password"><label>नया Password दोबारा</label><input id="nq" type="password" autocomplete="new-password"><div class="note">बदलने के बाद बाक़ी सभी फ़ोन/ब्राउज़र से आप Logout हो जाएँगे, इस फ़ोन पर नहीं।</div><button class="btn" onclick="savePass()">बदलें</button>';
+ if(v=='feedback')return hd('फ़ीडबैक / सुझाव',"go('settings')")+'<label>आपका सुझाव या शिकायत</label><textarea id="fb" rows="6" maxlength="1000" placeholder="जैसे: किस विषय के और नोट्स/वीडियो चाहिए, ऐप में क्या दिक़्क़त है..."></textarea><button class="btn" onclick="sendFb()">भेजें</button>';
+ if(v=='privacy')return privH();
+ if(v=='about')return hd('हमारे बारे में',"go('settings')")+'<div class="c" style="margin:10px 0">'+'<div class="lg">B</div><h2 class="t">BIJHO BRAND ASHISH</h2><div class="mu">पढ़ेगा बिहार, बढ़ेगा बिहार</div></div><div class="soon" style="border-style:solid;line-height:1.7">Class 8 से 12 (Bihar Board) के विद्यार्थियों के लिए सरल हिंदी में पढ़ाई: Notes, वीडियो क्लास, Test और Doubt AI।<br><br>संस्करण 1.0</div>';
+ if(v=='admfb')return fbl();
+ if(v=='adminhome'){var a=S.aps||{students:0};return '<div class="hdr"><div><div class="mu">Admin Panel</div><h2 class="t">BIJHO Dashboard</h2></div><span class="badge">Owner</span></div><div class="grid"><div class="card"><div class="i">👥</div><b>'+a.students+'</b><small>Students</small></div></div>'+row('📚 अध्याय जोड़ें','›','go(\'admch\')')+row('⬆ PDF नोट्स अपलोड','›','admNote()')+row('🎥 वीडियो अपलोड','›','admVid()')+row('📝 Test जोड़ें','›','go(\'admtest\')')+row('🔓 पासवर्ड भूले विद्यार्थी','›','admRs()')+row('💬 विद्यार्थियों का फ़ीडबैक','›','admFb()')+row('🔗 सोशल लिंक (Instagram/Facebook/YouTube/WhatsApp)','›','admLinks()')+row('🔑 Admin ID / Password बदलें','›','go(\'admcred\')')+row('🚪 Logout','','logout()')}
+ if(v=='admch')return hd('अध्याय जोड़ें',"go('adminhome')")+csF()+'<label>अध्याय का नाम</label><input id="at"><button class="btn" onclick="addCh()">जोड़ें</button>';
+ if(v=='admtest')return hd('नया Test',"go('adminhome')")+csF()+'<label>Test का नाम</label><input id="at"><label>समय (मिनट)</label><input id="am" inputmode="numeric" value="10"><label>हर लाइन में एक सवाल</label><textarea id="aq" rows="6" placeholder="सवाल | A | B | C | D | सही नंबर (1-4)\n5 + 5 = ? | 8 | 9 | 10 | 11 | 3"></textarea><button class="btn" onclick="addTest()">Test बनाएँ</button>';
+ return ''}
+function draw(){if(S.view!='testrun')clearInterval(tmr);var keep={};if(S.err)['a','m','p','c','n','q','at','am','aq','cp','ni','np','nq','l1','l2','l3','l4','sn','fb','fm','fn','rm','rc','rp','rq','rk','ri'].forEach(function(i){if($(i))keep[i]=$(i).value});
+ var h=view();if(S.err&&S.view!='boot')h='<div class="err" style="text-align:center;margin-bottom:8px">'+esc(S.err)+'</div>'+h;
+ $('app').innerHTML=h;drawSoc();for(var k in keep)if($(k))$(k).value=keep[k];
+ if(S.view=='testrun')tick();if(S.view=='home'&&S.tab=='ai'){var c=$('app');window.scrollTo(0,document.body.scrollHeight)}}
+if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
+draw();boot();
+</script></body></html>
