@@ -7,6 +7,7 @@ import uuid, json, urllib.request, urllib.error
 from urllib.parse import urlparse, parse_qs
 import random, math
 from flask import Flask, request, jsonify, g, send_file, abort, send_from_directory
+from werkzeug.middleware.proxy_fix import ProxyFix
 from werkzeug.security import generate_password_hash, check_password_hash
 from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 
