@@ -78,7 +78,8 @@ def init_db():
     CREATE TABLE IF NOT EXISTS videos(id INTEGER PRIMARY KEY, chapter_id INTEGER NOT NULL REFERENCES chapters(id) ON DELETE CASCADE,
       title TEXT NOT NULL, file_name TEXT NOT NULL, size INTEGER NOT NULL, created_at INTEGER NOT NULL, ext_url TEXT NOT NULL DEFAULT '');
     CREATE TABLE IF NOT EXISTS admins(id INTEGER PRIMARY KEY, login_id TEXT UNIQUE NOT NULL,
-      pw_hash TEXT NOT NULL, role TEXT NOT NULL DEFAULT 'owner', totp_secret TEXT NOT NULL DEFAULT '', tv INTEGER NOT NULL DEFAULT 0);
+      pw_hash TEXT NOT NULL, role TEXT NOT NULL DEFAULT 'owner', totp_secret TEXT NOT NULL DEFAULT '', tv INTEGER NOT NULL DEFAULT 0,
+      name TEXT NOT NULL DEFAULT '', created_at INTEGER NOT NULL DEFAULT 0, added_by INTEGER);
     CREATE TABLE IF NOT EXISTS settings(key TEXT PRIMARY KEY, value TEXT NOT NULL);
     """)
     c.commit(); c.close()
@@ -102,7 +103,7 @@ def verify_totp(secret, code):
 
 # ---------- auth helpers ----------
 def make_token(role, uid, v=0): return signer.dumps({"r": role, "u": uid, "v": v})
-def auth(required_role):
+def auth(required_role, owner_only=False):
     def deco(f):
         @wraps(f)
         def w(*a, **kw):
@@ -118,6 +119,9 @@ def auth(required_role):
             row = db().execute(f"SELECT tv FROM {tbl} WHERE id=?", (d["u"],)).fetchone()
             if not row or row["tv"] != d.get("v", 0): return jsonify(error="Session khatam, dobara login karo"), 401
             g.tv = row["tv"]
+            if owner_only and required_role == "admin":
+                r2 = db().execute("SELECT role FROM admins WHERE id=?", (d["u"],)).fetchone()
+                if not r2 or r2["role"] != "owner": return jsonify(error="Ye sirf Owner kar sakte hain"), 403
             return f(*a, **kw)
         return w
     return deco
@@ -198,14 +202,16 @@ def admin_login():
     ok = row and check_password_hash(row["pw_hash"], pw) and row["totp_secret"] and verify_totp(row["totp_secret"], code)
     if not ok:
         hit(key); return jsonify(error="Admin ID, password ya 6 ank ka code galat hai"), 401
-    return jsonify(token=make_token("admin", row["id"], row["tv"]), role=row["role"])
+    return jsonify(token=make_token("admin", row["id"], row["tv"]), role=row["role"], name=row["name"])
 
 @app.get("/api/admin/stats")
 @auth("admin")
 def admin_stats():
     n = db().execute("SELECT COUNT(*) c FROM students").fetchone()["c"]
     by = db().execute("SELECT class_no, COUNT(*) c FROM students GROUP BY class_no").fetchall()
-    return jsonify(students=n, by_class={str(r["class_no"]): r["c"] for r in by}, token=make_token("admin", g.uid, g.tv))
+    me = db().execute("SELECT role,name FROM admins WHERE id=?", (g.uid,)).fetchone()
+    return jsonify(students=n, by_class={str(r["class_no"]): r["c"] for r in by}, token=make_token("admin", g.uid, g.tv),
+                   role=me["role"], name=me["name"])
 
 # ---------- padhai ka content (Study Zone) ----------
 def me_student():
@@ -651,7 +657,7 @@ def get_links():
 def public_links(): return jsonify(get_links())
 
 @app.post("/api/admin/links")
-@auth("admin")
+@auth("admin", owner_only=True)
 def set_links():
     d = request.get_json(silent=True) or {}; new = {}
     for k in SOCIAL:
@@ -731,7 +737,7 @@ def forgot():
     return jsonify(ok=True)
 
 @app.get("/api/admin/resets")
-@auth("admin")
+@auth("admin", owner_only=True)
 def admin_resets():
     now = int(time.time())
     rows = db().execute("""SELECT r.student_id,r.requested_at,r.name_given,r.code_hash,r.code_expires,s.name,s.mobile,s.class_no,s.stream
@@ -741,7 +747,7 @@ def admin_resets():
         "code_sent": bool(r["code_hash"]) and r["code_expires"] > now} for r in rows])
 
 @app.post("/api/admin/resets/<int:sid>/code")
-@auth("admin")
+@auth("admin", owner_only=True)
 def issue_reset_code(sid):
     r = db().execute("SELECT s.name,s.mobile FROM resets x JOIN students s ON s.id=x.student_id WHERE x.student_id=?", (sid,)).fetchone()
     if not r: return jsonify(error="Anurodh nahi mila"), 404
@@ -750,7 +756,7 @@ def issue_reset_code(sid):
     return jsonify(code=code, name=r["name"], mobile=r["mobile"], hours=RESET_HOURS)
 
 @app.delete("/api/admin/resets/<int:sid>")
-@auth("admin")
+@auth("admin", owner_only=True)
 def dismiss_reset(sid):
     db().execute("DELETE FROM resets WHERE student_id=?", (sid,)); db().commit(); return jsonify(ok=True)
 
@@ -772,6 +778,36 @@ def reset_password():
     db().execute("DELETE FROM resets WHERE student_id=?", (st["id"],)); db().commit()      # code sirf ek baar
     row = db().execute("SELECT * FROM students WHERE id=?", (st["id"],)).fetchone()
     return jsonify(token=make_token("student", st["id"], tv), student=student_json(row))
+
+# ---------- Owner: Teacher accounts jodna/hatana ----------
+@app.get("/api/admin/teachers")
+@auth("admin", owner_only=True)
+def list_teachers():
+    rows = db().execute("SELECT id,login_id,name,created_at FROM admins WHERE role='teacher' ORDER BY id DESC").fetchall()
+    return jsonify(teachers=[dict(r) for r in rows])
+
+@app.post("/api/admin/teachers")
+@auth("admin", owner_only=True)
+def add_teacher():
+    d = request.get_json(silent=True) or {}
+    name, lid = str(d.get("name", "")).strip(), str(d.get("login_id", "")).strip()
+    if not 2 <= len(name) <= 60: return jsonify(error="Teacher ka naam 2-60 akshar ka likho"), 400
+    if not re.fullmatch(r"[A-Za-z0-9_.@-]{3,40}", lid): return jsonify(error="Teacher ID 3-40 akshar ka ho (A-Z, 0-9, _ . @ -)"), 400
+    if db().execute("SELECT 1 FROM admins WHERE login_id=?", (lid,)).fetchone(): return jsonify(error="Ye Teacher ID pehle se hai"), 409
+    pw = secrets.token_urlsafe(9)        # ek baar dikhega, Owner isse Teacher ko WhatsApp/copy se dega
+    secret = base64.b32encode(os.urandom(20)).decode()
+    db().execute("INSERT INTO admins(login_id,pw_hash,role,totp_secret,name,created_at,added_by) VALUES(?,?,?,?,?,?,?)",
+        (lid, generate_password_hash(pw), "teacher", secret, name, int(time.time()), g.uid))
+    db().commit()
+    return jsonify(login_id=lid, name=name, password=pw, totp_secret=secret), 201
+
+@app.delete("/api/admin/teachers/<int:tid>")
+@auth("admin", owner_only=True)
+def del_teacher(tid):
+    row = db().execute("SELECT role FROM admins WHERE id=?", (tid,)).fetchone()
+    if not row or row["role"] != "teacher": return jsonify(error="Teacher nahi mila"), 404
+    db().execute("DELETE FROM admins WHERE id=?", (tid,)); db().commit()
+    return jsonify(ok=True)
 
 # ---------- Admin password / 2-step code bhool gaye (Recovery Key se) ----------
 # Hosting ki settings mein ADMIN_RECOVERY_KEY (20+ akshar ka lamba random text) rakho. Ye key sirf aapke paas rahe.
